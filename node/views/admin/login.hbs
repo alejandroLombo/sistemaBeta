@@ -1,0 +1,38 @@
+{{#if conocido}}
+<p>Hola {{nombre}} <a style="color: black;" href="/salir">Salir</a></p>
+
+{{/if}}
+
+{{#unless conocido}}
+<div class="login-form-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+      <div class="form-control">
+
+        <form class="form-control" action="" method="post">
+
+          <h2>Logueate para Ingresar</h2>
+
+          <div>
+            <input class="form-control mt-4 mb-4" type="text" name="usuario" placeholder="Usuario" id="inputUser">
+          </div>
+
+          <div>
+            <input class="form-control mt-4 mb-4" type="password" name="password" placeholder="Contraseña" id="inputPasssword">
+          </div>
+
+          <button class="btn btn-primary mt-2">Ingresar</button>
+
+        </form>
+        <h5>Olvidaste tu ingreso ?</h5>
+        <a href="http://localhost:8000/contacto">Contacto</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{{#if error}}
+<p>Usuario y/o Contraseña Incorrectos</p>
+{{/if}}
+
+{{/unless}}
