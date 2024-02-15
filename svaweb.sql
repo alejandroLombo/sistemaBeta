@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2023 a las 00:14:21
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Servidor: localhost
+-- Tiempo de generación: 15-02-2024 a las 00:11:34
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,56 +50,41 @@ INSERT INTO `cargo` (`id`, `cargo`) VALUES
 --
 
 CREATE TABLE `cc_pagos` (
-  `id_pago` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `id_cc` int(11) NOT NULL,
-  `codcliente` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `efectivo` float NOT NULL,
   `transferencia` float NOT NULL,
-  `cobrador` varchar(255) NOT NULL
+  `cobrador` varchar(255) NOT NULL,
+  `createdAt` date NOT NULL,
+  `updatedAt` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cc_pagos`
 --
 
-INSERT INTO `cc_pagos` (`id_pago`, `id_cc`, `codcliente`, `fecha`, `efectivo`, `transferencia`, `cobrador`) VALUES
-(747, 486, 0, '2023-04-19', 0, 0, 'admin'),
-(748, 487, 0, '2023-04-19', 5730, 0, 'admin'),
-(749, 488, 0, '2023-04-19', 0, 0, 'admin'),
-(750, 489, 0, '2023-04-19', 2600, 0, 'admin'),
-(751, 490, 0, '2023-04-19', 14600, 0, 'admin'),
-(752, 491, 0, '2023-04-19', 3000, 0, 'admin'),
-(753, 492, 0, '2023-04-19', 5000, 0, 'admin'),
-(754, 493, 0, '2023-04-19', 0, 0, 'admin'),
-(755, 494, 0, '2023-04-19', 9000, 0, 'admin'),
-(756, 495, 0, '2023-04-19', 4000, 0, 'admin'),
-(757, 496, 0, '2023-04-19', 3150, 0, 'admin'),
-(758, 497, 0, '2023-04-19', 20000, 0, 'admin'),
-(759, 498, 0, '2023-04-19', 0, 0, 'admin'),
-(760, 499, 0, '2023-04-19', 0, 0, 'admin'),
-(761, 500, 0, '2023-04-19', 5635, 0, 'admin'),
-(762, 501, 0, '2023-04-19', 2000, 0, 'admin'),
-(763, 502, 0, '2023-04-19', 0, 0, 'admin'),
-(764, 503, 0, '2023-04-19', 1500, 0, 'admin'),
-(765, 504, 0, '2023-04-19', 0, 0, 'admin'),
-(766, 505, 0, '2023-04-19', 0, 0, 'admin'),
-(767, 506, 0, '2023-04-19', 0, 0, 'admin'),
-(768, 507, 0, '2023-04-19', 0, 0, 'admin'),
-(769, 508, 0, '2023-04-19', 5400, 0, 'admin'),
-(770, 509, 0, '2023-04-19', 0, 0, 'admin'),
-(771, 510, 0, '2023-04-19', 0, 0, 'admin'),
-(772, 511, 0, '2023-04-19', 12000, 10172, 'admin'),
-(773, 512, 0, '2023-04-19', 10000, 0, 'admin'),
-(774, 513, 0, '2023-04-19', 0, 0, 'admin'),
-(775, 514, 0, '2023-04-19', 0, 9600, 'admin'),
-(776, 515, 0, '2023-04-19', 5000, 0, 'admin'),
-(777, 516, 0, '2023-04-19', 0, 0, 'admin'),
-(778, 517, 0, '2023-04-19', 0, 11453, 'admin'),
-(779, 518, 0, '2023-04-19', 0, 0, 'admin'),
-(780, 519, 0, '2023-04-19', 3000, 0, 'admin'),
-(781, 520, 0, '2023-04-19', 0, 0, 'admin'),
-(782, 521, 0, '2023-04-19', 2000, 0, 'admin');
+INSERT INTO `cc_pagos` (`id`, `id_cc`, `idCliente`, `fecha`, `efectivo`, `transferencia`, `cobrador`, `createdAt`, `updatedAt`) VALUES
+(784, 522, 51, '2023-04-25', 1500, 0, 'ale', '0000-00-00', '0000-00-00'),
+(803, 478, 1652, '2024-02-12', 5000, 0, 'Administrador', '2024-02-12', '2024-02-12'),
+(804, 478, 1652, '2024-02-12', 2000, 0, 'Administrador', '2024-02-12', '2024-02-12'),
+(805, 478, 1652, '2024-02-13', 2000, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(806, 478, 1652, '2024-02-13', 0, 1000, 'Administrador', '2024-02-13', '2024-02-13'),
+(807, 478, 1652, '2024-02-13', 2243, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(808, 478, 1652, '2024-02-13', 2243, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(809, 479, 1118, '2024-02-13', 500, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(810, 479, 1118, '2024-02-13', 500, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(811, 480, 383, '2024-02-13', 10000, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(812, 480, 383, '2024-02-13', 6125, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(813, 480, 383, '2024-02-13', 5000, 3000, 'Administrador', '2024-02-13', '2024-02-13'),
+(814, 480, 383, '2024-02-13', 2000, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(815, 486, 1674, '2024-02-13', 19605, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(816, 483, 1692, '2024-02-13', 21162, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(817, 490, 1027, '2024-02-13', 16, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(818, 489, 5, '2024-02-13', 64, 0, 'Administrador', '2024-02-13', '2024-02-13'),
+(819, 547, 7, '2024-02-14', 15000, 10000, 'Administrador', '2024-02-14', '2024-02-14'),
+(820, 546, 13, '2024-02-14', 30000, 0, 'Administrador', '2024-02-14', '2024-02-14');
 
 -- --------------------------------------------------------
 
@@ -113,7 +98,8 @@ CREATE TABLE `cc_sva` (
   `codcliente` int(11) NOT NULL,
   `num_rem` int(13) NOT NULL,
   `total_rem` float NOT NULL,
-  `zona` int(11) NOT NULL,
+  `vendedor` int(11) NOT NULL,
+  `repartidor` int(11) NOT NULL,
   `saldo` float NOT NULL,
   `anulado` int(11) NOT NULL,
   `createdAt` date NOT NULL,
@@ -124,44 +110,58 @@ CREATE TABLE `cc_sva` (
 -- Volcado de datos para la tabla `cc_sva`
 --
 
-INSERT INTO `cc_sva` (`id`, `fecha`, `codcliente`, `num_rem`, `total_rem`, `zona`, `saldo`, `anulado`, `createdAt`, `updatedAt`) VALUES
-(486, '2023-04-19', 1674, 15, 19605, 1, 19605, 0, '0000-00-00', '0000-00-00'),
-(487, '2023-04-19', 1092, 16, 8729, 1, 2999, 0, '0000-00-00', '0000-00-00'),
-(488, '2023-04-19', 459, 17, 5182, 1, 5182, 0, '0000-00-00', '0000-00-00'),
-(489, '2023-04-19', 5, 18, 2264, 1, 64, 0, '0000-00-00', '0000-00-00'),
-(490, '2023-04-19', 1027, 19, 14616, 1, 16, 0, '0000-00-00', '0000-00-00'),
-(491, '2023-04-19', 35, 20, 4843, 1, 1843, 0, '0000-00-00', '0000-00-00'),
-(492, '2023-04-19', 265, 987, 9070, 2, 4070, 0, '0000-00-00', '0000-00-00'),
-(493, '2023-04-19', 436, 21, 16119, 1, 16119, 0, '0000-00-00', '0000-00-00'),
-(494, '2023-04-19', 1388, 886769, 18391, 2, 9391, 0, '0000-00-00', '0000-00-00'),
-(495, '2023-04-19', 1452, 22, 6373, 1, 2373, 0, '0000-00-00', '0000-00-00'),
-(496, '2023-04-19', 991, 878978, 6297, 2, 3147, 0, '0000-00-00', '0000-00-00'),
-(497, '2023-04-19', 449, 23, 31302, 1, 11302, 0, '0000-00-00', '0000-00-00'),
-(498, '2023-04-19', 295, 24, 4264, 1, 4264, 0, '0000-00-00', '0000-00-00'),
-(499, '2023-04-19', 492, 25, 6392, 1, 6392, 0, '0000-00-00', '0000-00-00'),
-(500, '2023-04-19', 1712, 26, 8635, 1, 3000, 0, '0000-00-00', '0000-00-00'),
-(501, '2023-04-19', 111, 27, 3611, 1, 1611, 0, '0000-00-00', '0000-00-00'),
-(502, '2023-04-19', 1016, 28, 19277, 1, 19277, 0, '0000-00-00', '0000-00-00'),
-(503, '2023-04-19', 774, 29, 4979, 1, 3479, 0, '0000-00-00', '0000-00-00'),
-(504, '2023-04-19', 334, 30, 39272, 1, 39272, 0, '0000-00-00', '0000-00-00'),
-(505, '2023-04-19', 176, 31, 7552, 1, 7552, 0, '0000-00-00', '0000-00-00'),
-(506, '2023-04-19', 267, 32, 16429, 1, 16429, 0, '0000-00-00', '0000-00-00'),
-(507, '2023-04-19', 207, 33, 4613, 1, 4613, 0, '0000-00-00', '0000-00-00'),
-(508, '2023-04-19', 1365, 34, 10387, 1, 4987, 0, '0000-00-00', '0000-00-00'),
-(509, '2023-04-19', 187, 35, 27115, 1, 27115, 0, '0000-00-00', '0000-00-00'),
-(510, '2023-04-19', 1278, 36, 26508, 2, 26508, 0, '0000-00-00', '0000-00-00'),
-(511, '2023-04-19', 961, 37, 25171, 2, 2999, 0, '0000-00-00', '0000-00-00'),
-(512, '2023-04-19', 1085, 38, 16136, 2, 6136, 0, '0000-00-00', '0000-00-00'),
-(513, '2023-04-19', 357, 39, 3718, 2, 3718, 0, '0000-00-00', '0000-00-00'),
-(514, '2023-04-19', 1663, 40, 19596, 2, 9996, 0, '0000-00-00', '0000-00-00'),
-(515, '2023-04-19', 1681, 41, 9710, 2, 4710, 0, '0000-00-00', '0000-00-00'),
-(516, '2023-04-19', 895, 42, 22550, 2, 22550, 0, '0000-00-00', '0000-00-00'),
-(517, '2023-04-19', 1310, 43, 11453, 2, 0, 0, '0000-00-00', '0000-00-00'),
-(518, '2023-04-19', 1278, 44, 16668, 2, 16668, 0, '0000-00-00', '0000-00-00'),
-(519, '2023-04-19', 991, 45, 5994, 2, 2994, 0, '0000-00-00', '0000-00-00'),
-(520, '2023-04-19', 961, 46, 11336, 2, 11336, 0, '0000-00-00', '0000-00-00'),
-(521, '2023-04-19', 1388, 47, 4143, 2, 2143, 0, '0000-00-00', '0000-00-00'),
-(529, '2023-08-21', 1695, 2, 345345, 1, 11234.5, 0, '2023-08-21', '2023-08-21');
+INSERT INTO `cc_sva` (`id`, `fecha`, `codcliente`, `num_rem`, `total_rem`, `vendedor`, `repartidor`, `saldo`, `anulado`, `createdAt`, `updatedAt`) VALUES
+(478, '2023-04-19', 1652, 7, 12243, 1, 0, 2243, 1, '0000-00-00', '2024-02-13'),
+(479, '2023-04-19', 1118, 8, 65240, 1, 0, 0, 0, '0000-00-00', '2024-02-13'),
+(480, '2023-04-19', 383, 9, 26125, 1, 0, 0, 0, '0000-00-00', '2024-02-13'),
+(481, '2023-04-19', 367, 10, 4886, 1, 0, 4886, 0, '0000-00-00', '0000-00-00'),
+(482, '2023-04-19', 188, 11, 6601, 1, 0, 6601, 0, '0000-00-00', '0000-00-00'),
+(483, '2023-04-19', 1692, 12, 21162, 1, 0, 0, 0, '0000-00-00', '2024-02-13'),
+(484, '2023-04-19', 1127, 13, 14671, 1, 0, 7671, 0, '0000-00-00', '0000-00-00'),
+(485, '2023-04-19', 346, 14, 12120, 1, 0, 12120, 0, '0000-00-00', '0000-00-00'),
+(486, '2023-04-19', 1674, 15, 19605, 1, 0, 0, 0, '0000-00-00', '2024-02-13'),
+(487, '2023-04-19', 1092, 16, 8729, 1, 0, 2999, 0, '0000-00-00', '0000-00-00'),
+(488, '2023-04-19', 459, 17, 5182, 1, 0, 5182, 0, '0000-00-00', '0000-00-00'),
+(489, '2023-04-19', 5, 18, 2264, 1, 0, 0, 0, '0000-00-00', '2024-02-13'),
+(490, '2023-04-19', 1027, 19, 14616, 1, 0, 0, 0, '0000-00-00', '2024-02-13'),
+(491, '2023-04-19', 35, 20, 4843, 1, 0, 1843, 0, '0000-00-00', '0000-00-00'),
+(492, '2023-04-19', 265, 987, 9070, 2, 0, 4070, 0, '0000-00-00', '0000-00-00'),
+(493, '2023-04-19', 436, 21, 16119, 1, 0, 16119, 0, '0000-00-00', '2024-02-10'),
+(494, '2023-04-19', 1388, 886769, 18391, 2, 0, 9391, 0, '0000-00-00', '0000-00-00'),
+(495, '2023-04-19', 1452, 22, 6373, 1, 0, 2373, 0, '0000-00-00', '0000-00-00'),
+(496, '2023-04-19', 991, 878978, 6297, 2, 0, 3147, 0, '0000-00-00', '0000-00-00'),
+(497, '2023-04-19', 449, 23, 31302, 1, 0, 11302, 0, '0000-00-00', '0000-00-00'),
+(498, '2023-04-19', 295, 24, 4264, 1, 0, 4264, 0, '0000-00-00', '0000-00-00'),
+(499, '2023-04-19', 492, 25, 6392, 1, 0, 6392, 0, '0000-00-00', '0000-00-00'),
+(500, '2023-04-19', 1712, 26, 8635, 1, 0, 3000, 0, '0000-00-00', '0000-00-00'),
+(501, '2023-04-19', 111, 27, 3611, 1, 0, 1611, 0, '0000-00-00', '0000-00-00'),
+(502, '2023-04-19', 1016, 28, 19277, 1, 0, 19277, 0, '0000-00-00', '0000-00-00'),
+(503, '2023-04-19', 774, 29, 4979, 1, 0, 3479, 0, '0000-00-00', '0000-00-00'),
+(504, '2023-04-19', 334, 30, 39272, 1, 0, 39272, 0, '0000-00-00', '0000-00-00'),
+(506, '2023-04-19', 267, 32, 16429, 1, 0, 16429, 0, '0000-00-00', '0000-00-00'),
+(507, '2023-04-19', 207, 33, 4613, 1, 0, 4613, 0, '0000-00-00', '0000-00-00'),
+(508, '2023-04-19', 1365, 34, 10387, 1, 0, 4987, 0, '0000-00-00', '0000-00-00'),
+(509, '2023-04-19', 187, 35, 27115, 1, 0, 27115, 0, '0000-00-00', '0000-00-00'),
+(510, '2023-04-19', 1278, 36, 26508, 2, 0, 26508, 0, '0000-00-00', '0000-00-00'),
+(511, '2023-04-19', 961, 37, 25171, 2, 0, 2999, 0, '0000-00-00', '0000-00-00'),
+(512, '2023-04-19', 1085, 38, 16136, 2, 0, 6136, 0, '0000-00-00', '0000-00-00'),
+(513, '2023-04-19', 357, 39, 3718, 2, 0, 3718, 0, '0000-00-00', '0000-00-00'),
+(514, '2023-04-19', 1663, 40, 19596, 2, 0, 9996, 0, '0000-00-00', '0000-00-00'),
+(515, '2023-04-19', 1681, 41, 9710, 2, 0, 4710, 0, '0000-00-00', '0000-00-00'),
+(516, '2023-04-19', 895, 42, 22550, 2, 0, 22550, 0, '0000-00-00', '0000-00-00'),
+(517, '2023-04-19', 1310, 43, 11453, 2, 0, 0, 0, '0000-00-00', '2024-02-12'),
+(518, '2023-04-19', 1278, 44, 16668, 2, 0, 16668, 0, '0000-00-00', '0000-00-00'),
+(519, '2023-04-19', 991, 45, 5994, 2, 0, 2994, 0, '0000-00-00', '0000-00-00'),
+(520, '2023-04-19', 961, 46, 11336, 2, 0, 11336, 0, '0000-00-00', '0000-00-00'),
+(521, '2023-04-19', 1388, 47, 4143, 2, 0, 2143, 0, '0000-00-00', '0000-00-00'),
+(522, '2023-04-26', 51, 6483873, 9500, 1, 0, 8500, 0, '0000-00-00', '2023-08-21'),
+(525, '2023-08-15', 151, 35289, 10000, 2, 0, 5000, 0, '2023-08-19', '2023-08-19'),
+(531, '2023-08-21', 2, 1231232213, 12312, 1, 0, 12066, 1, '2023-08-21', '2024-02-12'),
+(536, '2024-02-11', 4, 38828, 32500, 1, 0, 22500, 1, '2024-02-11', '2024-02-11'),
+(542, '2024-02-14', 10, 232323, 25000, 1, 1, 15000, 0, '2024-02-14', '2024-02-14'),
+(545, '2024-02-14', 11, 222223, 10000, 1, 1, 10000, 1, '2024-02-14', '2024-02-14'),
+(546, '2024-02-14', 13, 222224, 30000, 4, 1, 0, 0, '2024-02-14', '2024-02-14'),
+(547, '2024-02-14', 7, 212121, 25000, 4, 7, 0, 0, '2024-02-14', '2024-02-14');
 
 -- --------------------------------------------------------
 
@@ -1842,10 +1842,10 @@ CREATE TABLE `descuentos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `efectivo`
+-- Estructura de tabla para la tabla `Efectivo`
 --
 
-CREATE TABLE `efectivo` (
+CREATE TABLE `Efectivo` (
   `id` int(11) NOT NULL,
   `id_p_reparto` int(11) NOT NULL,
   `b1000` int(11) NOT NULL,
@@ -1865,10 +1865,10 @@ CREATE TABLE `efectivo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `efectivo`
+-- Volcado de datos para la tabla `Efectivo`
 --
 
-INSERT INTO `efectivo` (`id`, `id_p_reparto`, `b1000`, `t_b1000`, `b_500`, `t_b500`, `b_200`, `t_b200`, `b_100`, `t_b100`, `b_50`, `t_b50`, `b_20`, `t_b20`, `b_10`, `t_b10`) VALUES
+INSERT INTO `Efectivo` (`id`, `id_p_reparto`, `b1000`, `t_b1000`, `b_500`, `t_b500`, `b_200`, `t_b200`, `b_100`, `t_b100`, `b_50`, `t_b50`, `b_20`, `t_b20`, `b_10`, `t_b10`) VALUES
 (6, 7, 31, 31000, 104, 52000, 51, 10200, 328, 32800, 2, 100, 2, 40, 2, 20);
 
 -- --------------------------------------------------------
@@ -1940,17 +1940,6 @@ CREATE TABLE `nvoclientes` (
   `codVendedor` int(11) NOT NULL,
   `procesado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Volcado de datos para la tabla `nvoclientes`
---
-
-INSERT INTO `nvoclientes` (`codigo`, `nombre`, `direccion`, `telefono`, `localidad`, `provincia`, `cuit`, `clihorario`, `vendedor`, `codVendedor`, `procesado`) VALUES
-(1, 'alejandro', 'doroteo robles 3965', '3513549611', 'cordoba', 'cordoba', '20352800784', '8 a 22', '0', 0, 0),
-(26, 'Mercedez', 'Corrientes 2131', '1638362', 'Costa sacate', 'Cba', '271527392719', '0 a 23:59', '0', 0, 0),
-(27, 'franco', 'pepito', '1238766', 'cba', 'cba', '1238737490', '0 a 23:59', '0', 0, 0),
-(28, 'sol', 'medrano 5025', '1248124896', 'cba', 'cba', '123894135', '12 a 12', '0', 0, 0),
-(29, 'martin', 'necochea', '3512161101', 'cna', 'cba', '20245555556', '10-18', '0', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2094,17 +2083,14 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `id_cargo`, `codsistema`, `zona`, `createdAt`, `updatedAt`) VALUES
-(1, 'Alejandro', 'ale', 'lola123', 2, 2, 1, '0000-00-00', '0000-00-00'),
-(2, 'Sol', 'sol', 'lola2709', 1, 0, 3, '0000-00-00', '0000-00-00'),
-(3, 'Franco', 'franco', '12345', 2, 4, 2, '0000-00-00', '0000-00-00'),
+(1, 'Alejandro', 'ale', '12345', 2, 2, 1, '0000-00-00', '2024-02-10'),
+(2, 'Sol', 'sol', '12345', 3, 0, 3, '0000-00-00', '2024-02-10'),
 (4, 'Florencia', 'flor', '12345', 4, 5, 1, '0000-00-00', '0000-00-00'),
-(5, 'Brenda', 'brenda', 'lola2709', 2, 0, 1, '0000-00-00', '0000-00-00'),
-(6, 'Yesica Paredez', 'yesica', 'lola2709', 4, 0, 2, '0000-00-00', '0000-00-00'),
 (7, 'Administrador', 'admin', 'admin-01', 1, 0, 3, '0000-00-00', '0000-00-00'),
 (8, 'Maximo', 'maxi', '2205', 2, 0, 1, '0000-00-00', '0000-00-00'),
 (9, 'Franco r2', 'franr2', '54321', 2, 0, 1, '0000-00-00', '0000-00-00'),
 (10, 'franco onc', 'franonc', '54321', 4, 11, 2, '0000-00-00', '0000-00-00'),
-(24, 'Rosalia', 'rosa', '4321', 1, 23, 1, '2023-08-15', '2023-08-15');
+(30, 'Guillermo', 'guille', '12345', 1, 1, 1, '2024-02-12', '2024-02-12');
 
 -- --------------------------------------------------------
 
@@ -2113,18 +2099,20 @@ INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `id_cargo`, `cods
 --
 
 CREATE TABLE `zonas` (
-  `id_zona` int(11) NOT NULL,
-  `zona` varchar(255) NOT NULL
+  `id` int(11) NOT NULL,
+  `zona` varchar(255) NOT NULL,
+  `createdAt` date NOT NULL,
+  `updatedAt` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `zonas`
 --
 
-INSERT INTO `zonas` (`id_zona`, `zona`) VALUES
-(1, 'Rio Segundo'),
-(2, 'Oncativo'),
-(3, 'mixta');
+INSERT INTO `zonas` (`id`, `zona`, `createdAt`, `updatedAt`) VALUES
+(1, 'Rio Segundo', '0000-00-00', '0000-00-00'),
+(2, 'Oncativo', '0000-00-00', '0000-00-00'),
+(3, 'mixta', '0000-00-00', '0000-00-00');
 
 --
 -- Índices para tablas volcadas
@@ -2140,17 +2128,16 @@ ALTER TABLE `cargo`
 -- Indices de la tabla `cc_pagos`
 --
 ALTER TABLE `cc_pagos`
-  ADD PRIMARY KEY (`id_pago`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_cc` (`id_cc`),
-  ADD KEY `codcliente` (`codcliente`);
+  ADD KEY `codcliente` (`idCliente`);
 
 --
 -- Indices de la tabla `cc_sva`
 --
 ALTER TABLE `cc_sva`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `codcliente` (`codcliente`),
-  ADD KEY `zona` (`zona`);
+  ADD KEY `codcliente` (`codcliente`);
 
 --
 -- Indices de la tabla `clientes`
@@ -2175,9 +2162,9 @@ ALTER TABLE `descuentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `efectivo`
+-- Indices de la tabla `Efectivo`
 --
-ALTER TABLE `efectivo`
+ALTER TABLE `Efectivo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_p_reparto` (`id_p_reparto`);
 
@@ -2261,7 +2248,7 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `zonas`
 --
 ALTER TABLE `zonas`
-  ADD PRIMARY KEY (`id_zona`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -2277,13 +2264,13 @@ ALTER TABLE `cargo`
 -- AUTO_INCREMENT de la tabla `cc_pagos`
 --
 ALTER TABLE `cc_pagos`
-  MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=785;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=821;
 
 --
 -- AUTO_INCREMENT de la tabla `cc_sva`
 --
 ALTER TABLE `cc_sva`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=537;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=548;
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
@@ -2298,9 +2285,9 @@ ALTER TABLE `descuentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `efectivo`
+-- AUTO_INCREMENT de la tabla `Efectivo`
 --
-ALTER TABLE `efectivo`
+ALTER TABLE `Efectivo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
@@ -2331,13 +2318,13 @@ ALTER TABLE `transferencia`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `zonas`
 --
 ALTER TABLE `zonas`
-  MODIFY `id_zona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -2353,8 +2340,7 @@ ALTER TABLE `cc_pagos`
 -- Filtros para la tabla `cc_sva`
 --
 ALTER TABLE `cc_sva`
-  ADD CONSTRAINT `cc_sva_ibfk_1` FOREIGN KEY (`codcliente`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cc_sva_ibfk_2` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `cc_sva_ibfk_1` FOREIGN KEY (`codcliente`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `compras`
@@ -2362,14 +2348,14 @@ ALTER TABLE `cc_sva`
 ALTER TABLE `compras`
   ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`id_prov`) REFERENCES `proveedores` (`id`),
   ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `compras_ibfk_3` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`),
+  ADD CONSTRAINT `compras_ibfk_3` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id`),
   ADD CONSTRAINT `compras_ibfk_4` FOREIGN KEY (`orden_pago`) REFERENCES `orden_pago` (`id`);
 
 --
 -- Filtros para la tabla `gastos`
 --
 ALTER TABLE `gastos`
-  ADD CONSTRAINT `gastos_ibfk_1` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`);
+  ADD CONSTRAINT `gastos_ibfk_1` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id`);
 
 --
 -- Filtros para la tabla `nota_credito`
@@ -2377,7 +2363,7 @@ ALTER TABLE `gastos`
 ALTER TABLE `nota_credito`
   ADD CONSTRAINT `nota_credito_ibfk_1` FOREIGN KEY (`ip_prov`) REFERENCES `proveedores` (`id`),
   ADD CONSTRAINT `nota_credito_ibfk_2` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `nota_credito_ibfk_3` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`);
+  ADD CONSTRAINT `nota_credito_ibfk_3` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id`);
 
 --
 -- Filtros para la tabla `nota_debito`
@@ -2385,7 +2371,7 @@ ALTER TABLE `nota_credito`
 ALTER TABLE `nota_debito`
   ADD CONSTRAINT `nota_debito_ibfk_1` FOREIGN KEY (`id_prov`) REFERENCES `proveedores` (`id`),
   ADD CONSTRAINT `nota_debito_ibfk_2` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `nota_debito_ibfk_3` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`);
+  ADD CONSTRAINT `nota_debito_ibfk_3` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id`);
 
 --
 -- Filtros para la tabla `nvoclientes`
@@ -2398,7 +2384,7 @@ ALTER TABLE `nvoclientes`
 --
 ALTER TABLE `orden_pago`
   ADD CONSTRAINT `orden_pago_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`id`),
-  ADD CONSTRAINT `orden_pago_ibfk_2` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`),
+  ADD CONSTRAINT `orden_pago_ibfk_2` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id`),
   ADD CONSTRAINT `orden_pago_ibfk_3` FOREIGN KEY (`id_prov`) REFERENCES `proveedores` (`id`),
   ADD CONSTRAINT `orden_pago_ibfk_5` FOREIGN KEY (`id_nc`) REFERENCES `nota_credito` (`id`),
   ADD CONSTRAINT `orden_pago_ibfk_6` FOREIGN KEY (`id_nd`) REFERENCES `nota_debito` (`id`),
@@ -2409,7 +2395,7 @@ ALTER TABLE `orden_pago`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `cargo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id_zona`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`zona`) REFERENCES `zonas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
