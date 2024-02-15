@@ -6,11 +6,12 @@ const URIcuentas = 'http://localhost:8000/cuentas/'
 const URIclientes = 'http://localhost:8000/clientes/'
 
 const ComponenteCrearSaldo = () => {
-    
+
     const userString = localStorage.getItem('usuario');
     const user = userString ? JSON.parse(userString) : null;
+    /* console.log(user.id_cargo); */
 
-    const repart = user.id
+
     const [numrem, setNumrem] = useState(0)
     const [totalrem, setTotalRem] = useState(0)
     const [vendedor, setVendedor] = useState(0)
@@ -22,39 +23,55 @@ const ComponenteCrearSaldo = () => {
     const [options, setOptions] = useState([]);
     const [selectedOption, setSelectedOption] = useState('')
 
+
+    
+    
     // obtengo el listado de clientes para el select del form
     const getClientes = async () => {
         await axios.get(URIclientes)
-            .then(response => {
-                setOptions(response.data)
-                //console.log(response.data);
-            })
-            .catch(error => {
-                console.log('Error:', error)
-            })
+        .then(response => {
+            setOptions(response.data)
+            /* console.log(response.data); */
+        })
+        .catch(error => {
+            console.log('Error:', error)
+        })
+        if (user.id_cargo !== 1) {
+            setRepartidor(user.id)
+            /* console.log("si entro al if") */
+        }
     }
+
+    
+    
 
     // crear saldo nuevo
     const CrearSaldo = async (e) => {
         e.preventDefault();
         const saldo = totalrem - efectivo - transferencia;
+        const cliente = options.find(options => options.id === selectedOption)
+        //setVendedor(cliente.nombre)
+        console.log(cliente);
         try {
-            await axios.post(URIcuentas+'crear',
+            await axios.post(URIcuentas + 'crear',
                 {
                     codcliente: selectedOption,
                     num_rem: numrem,
                     total_rem: totalrem,
-                    vendedor: vendedor,
-                    repartidor: repart,
+                    vendedor: 0,
+                    repartidor: repartidor,
                     saldo: saldo,
                     anulado: 0
                 })
+               // console.log(vendedor);
             alert("Registro creado correctamente !")
             navigate('/saldos')
         } catch (error) {
             alert('Registro NO CREADO, error: ', error)
         }
     }
+
+
 
     // llamo las a las funciones necesarias al cargar el componente
     useEffect(() => {
@@ -74,31 +91,29 @@ const ComponenteCrearSaldo = () => {
                     <div className="col-sm-12 col-md-4 col-lg-4 col-lx-4">
                         <div className="mt-4 ml-4">
 
-                        <form onSubmit={CrearSaldo} >
-                            <select onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
-                                <option>Selecciona un cliente</option>
-                                {options.map(option => (
-                                    <option key={option.id} value={option.id}>
-                                        {option.nombre}
-                                    </option>
-                                ))}
-                            </select>
-                            <label>N° de Remito</label>
-                            <input value={numrem} onChange={(e) => setNumrem(e.target.value)} className="form-control" type="number" />
-                            <label >Total de Remito</label>
-                            <input value={totalrem} onChange={(e) => setTotalRem(e.target.value)} className="form-control" type="number" />
-                            {user.id_cargo === 1 &&(<>
-                            <label >Vendedor</label> 
-                            <input value={vendedor} onChange={(e) => setVendedor(e.target.value)} className="form-control" type="number" />
-                            <label >Repartidor</label>
-                            <input value={repartidor} onChange={(e) => setRepartidor(e.target.value)} className="form-control" /> </>)}
-                            <label >Efectivo</label>
-                            <input value={efectivo} onChange={(e) => setEfectivo(e.target.value)} className="form-control" type="number" />
-                            <label >Transferencia</label>
-                            <input value={transferencia} onChange={(e) => setTransferencia(e.target.value)} className="form-control" type="number"/>
-                            <button type="submit" className="btn btn-primary mt-3">Cargar</button>
+                            <form onSubmit={CrearSaldo} >
+                                <select onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
+                                    <option>Selecciona un cliente</option>
+                                    {options.map(option => (
+                                        <option key={option.id} value={option.id}>
+                                            {option.nombre}
+                                        </option>
+                                    ))}
+                                </select>
+                                <label>N° de Remito</label>
+                                <input value={numrem} onChange={(e) => setNumrem(e.target.value)} className="form-control" type="number" />
+                                <label >Total de Remito</label>
+                                <input value={totalrem} onChange={(e) => setTotalRem(e.target.value)} className="form-control" type="number" />
+                                {user.id_cargo === 1 && (<>
+                                    <label >Repartidor</label>
+                                    <input value={repartidor} onChange={(e) => setRepartidor(e.target.value)} className="form-control" /> </>)}
+                                <label >Efectivo</label>
+                                <input value={efectivo} onChange={(e) => setEfectivo(e.target.value)} className="form-control" type="number" />
+                                <label >Transferencia</label>
+                                <input value={transferencia} onChange={(e) => setTransferencia(e.target.value)} className="form-control" type="number" />
+                                <button type="submit" className="btn btn-primary mt-3">Cargar</button>
 
-                        </form>
+                            </form>
                         </div>
                     </div>
 
