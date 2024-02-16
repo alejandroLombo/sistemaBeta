@@ -14,7 +14,6 @@ const ComponenteCrearSaldo = () => {
 
     const [numrem, setNumrem] = useState(0)
     const [totalrem, setTotalRem] = useState(0)
-    const [vendedor, setVendedor] = useState(0)
     const [repartidor, setRepartidor] = useState(0)
     const [efectivo, setEfectivo] = useState(0)
     const [transferencia, setTransferencia] = useState(0)
@@ -42,23 +41,25 @@ const ComponenteCrearSaldo = () => {
         }
     }
 
-    
-    
 
-    // crear saldo nuevo
-    const CrearSaldo = async (e) => {
-        e.preventDefault();
-        const saldo = totalrem - efectivo - transferencia;
-        const cliente = options.find(options => options.id === selectedOption)
-        //setVendedor(cliente.nombre)
-        console.log(cliente);
+
+// crear saldo nuevo
+const CrearSaldo = async (e) => {
+    e.preventDefault();
+    console.log(selectedOption);
+    
+    const cliente = JSON.parse(selectedOption);
+
+    const codclient = cliente.id
+    const vendedor = cliente.id
+    const saldo = totalrem - efectivo - transferencia;
         try {
             await axios.post(URIcuentas + 'crear',
                 {
-                    codcliente: selectedOption,
+                    codcliente: codclient,
                     num_rem: numrem,
                     total_rem: totalrem,
-                    vendedor: 0,
+                    vendedor: vendedor,
                     repartidor: repartidor,
                     saldo: saldo,
                     anulado: 0
@@ -76,6 +77,7 @@ const ComponenteCrearSaldo = () => {
     // llamo las a las funciones necesarias al cargar el componente
     useEffect(() => {
         getClientes()
+
     }, [])
 
 
@@ -92,10 +94,10 @@ const ComponenteCrearSaldo = () => {
                         <div className="mt-4 ml-4">
 
                             <form onSubmit={CrearSaldo} >
-                                <select onChange={(e) => setSelectedOption(e.target.value)} className="form-control">
+                                <select onChange={(e) =>setSelectedOption(e.target.value)} className="form-control">
                                     <option>Selecciona un cliente</option>
                                     {options.map(option => (
-                                        <option key={option.id} value={option.id}>
+                                        <option key={option.id} value={JSON.stringify(option)}>
                                             {option.nombre}
                                         </option>
                                     ))}
