@@ -25,6 +25,7 @@ const ComponenteCobrarSaldo = () => {
             const res = await axios.get(URIcuentas + id)
             setCuenta(res.data)
             setSaldo(res.data.saldo)
+            
         } catch (error) {
             console.error('Error:', error);
         }
@@ -58,7 +59,7 @@ const ComponenteCobrarSaldo = () => {
                 navigate('/saldos')
 
             } else {
-                alert('Saldo NEGATIVO !')
+                alert('El Saldo queda en NEGATIVO! Por favor verifique el cobro')
             }
 
         } catch (error) {
@@ -75,6 +76,8 @@ const ComponenteCobrarSaldo = () => {
 
 
     }, [getSaldoById])
+
+
 
     // vista
     return (
@@ -93,22 +96,36 @@ const ComponenteCobrarSaldo = () => {
                     </div>
 
                 </div>
-
+                <div>
+                    <label>Fecha de Entrega</label>
+                    <input value={cuenta.fecha} className="form-control" disabled
+                    />
+                </div>
+                <div>
+                    <label>Numero Remito</label>
+                    <input value={cuenta.num_rem}  className="form-control" disabled
+                    />
+                </div>
+                <div>
+                    <label>Total Remito</label>
+                    <input value={cuenta.total_rem} className="form-control" disabled
+                    />
+                </div>
                 <div>
                     <label>Saldo</label>
-                    <input value={cuenta.saldo} onChange={(e) => setSaldo(e.target.value)} className="form-control" disabled
+                    <input value={cuenta.saldo}  className="form-control" disabled
                     />
                 </div>
 
                 <div>
                     <label>Efectivo</label>
-                    <input value={efectivo} onChange={(e) => setEfectivo(e.target.value)} className="form-control"
+                    <input value={efectivo} onChange={(e) => setEfectivo(e.target.value)} className="form-control" type="number"
                     />
                 </div>
 
                 <div>
                     <label>Tranferencia</label>
-                    <input value={transferencia} onChange={(e) => setTransferencia(e.target.value)} className="form-control"
+                    <input value={transferencia} onChange={(e) => setTransferencia(e.target.value)} className="form-control" type="number"
                     />
                 </div>
                 <div>

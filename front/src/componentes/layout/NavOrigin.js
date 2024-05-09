@@ -1,32 +1,33 @@
-import React from "react";
-import { NavLink, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useAuth } from './AuthContext';
 import '../../styles/components/layout/Nav.css';
-
+const { logout } = useAuth();
 
 
 const Logout = () => {
 
-   // Eliminar un elemento del localStorage
-   localStorage.removeItem('usuario');
+    // Eliminar un elemento del localStorage
+    localStorage.removeItem('usuario');
+    logout();
 }
 
-
-
-const NavBar = (props) => {
-    
+const NavBar = () => {
+    /*     const [user, setUser] = useState([])
+        setUser=localStorage.getItem('usuario'); */
     const userString = localStorage.getItem('usuario');
     const user = userString ? JSON.parse(userString) : null
-    
 
-        
-      
-        return (
+    return (
         <>
             {user && (
                 <nav className="menu">
                     {user.id_cargo === 1 && (
                         <>
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/admin">Home</NavLink>
+
+                            <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/saldos">Cuentas Corrientes</NavLink>
+
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/usuarios">Usuarios</NavLink>
                         </>
                     )}
@@ -35,19 +36,15 @@ const NavBar = (props) => {
                     )}
                     {user.id_cargo === 3 && (
                         <>
-                            <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/administracion">Home</NavLink>  
+                            <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/administracion">Home</NavLink>
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/usuarios">Usuarios</NavLink>
                         </>
                     )}
-                    <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="http://localhost:3000/login" onClick={Logout}>Salir</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/login" onClick={Logout}>Salir</NavLink>
                 </nav>
             )}
         </>
     );
-
-
 }
 
-
-
-export default NavBar
+export default NavBar;

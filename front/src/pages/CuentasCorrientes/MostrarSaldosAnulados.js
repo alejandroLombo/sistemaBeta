@@ -1,4 +1,5 @@
 import axios from 'axios'
+import '../../styles/components/botones/button.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -37,8 +38,8 @@ const ComponenteMostrarSaldosAnulados = () => {
                 <h1>Cuentas Corrientes Anuladas</h1>
                 <div className="col-sm-12 col-md-2 col-lg-2 col-lx-2 border-right border-dark">
                     
-                    <Link to='/saldos' className='btn btn-primary mt-2 mb-2'>Volver</Link>
-                    <Link to='/saldosCobrados' className='btn btn-primary mt-2 mb-2'><i className="fa-solid fa-box-archive"></i> Saldo Cobrados</Link>
+                    <Link to='/saldos' className='btn btn-primary boton'>Volver</Link>
+                   
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-10 col-lx-10">
                     <table className='table'>

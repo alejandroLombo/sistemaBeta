@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from '../AuthContext';
 import '../../styles/components/layout/Nav.css';
 
-
 const Logout = () => {
+    const { logout } = useAuth(); // Mueve la llamada a useAuth aquí dentro si es necesario
 
-    // Eliminar un elemento del localStorage
-    localStorage.removeItem('usuario');
+    const handleLogout = () => {
+        // Elimina el elemento del localStorage
+        localStorage.removeItem('usuario');
+        // Llama a la función de logout del contexto de autenticación
+        logout();
+    };
+
+    return (
+        <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/login" onClick={handleLogout}>
+            Salir
+        </NavLink>
+    );
 }
 
 const NavBar = () => {
-    /*     const [user, setUser] = useState([])
-        setUser=localStorage.getItem('usuario'); */
     const userString = localStorage.getItem('usuario');
-    const user = userString ? JSON.parse(userString) : null
+    const user = userString ? JSON.parse(userString) : null;
 
     return (
         <>
@@ -22,9 +31,7 @@ const NavBar = () => {
                     {user.id_cargo === 1 && (
                         <>
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/admin">Home</NavLink>
-
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/saldos">Cuentas Corrientes</NavLink>
-
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/usuarios">Usuarios</NavLink>
                         </>
                     )}
@@ -37,7 +44,7 @@ const NavBar = () => {
                             <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/usuarios">Usuarios</NavLink>
                         </>
                     )}
-                    <NavLink className={({ isActive }) => (isActive ? "active" : null)} to="/login" onClick={Logout}>Salir</NavLink>
+                    <Logout /> {/* Renderiza el componente Logout en lugar de incluir la lógica directamente aquí */}
                 </nav>
             )}
         </>

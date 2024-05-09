@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+
 
 const URICLIENTES = 'http://localhost:8000/home';
 const URIZONAS = 'http://localhost:8000/home/getTotalZonas';
@@ -41,6 +41,7 @@ export default function Administracion() {
 
   return (
       <>
+     
 
 
           <div class="container">

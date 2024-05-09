@@ -1,4 +1,5 @@
 import axios from 'axios'
+import '../../styles/components/botones/button.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -37,9 +38,8 @@ const ComponenteMostrarSaldosEnZero = () => {
             <div className='row'>
                 <h1>Cuentas Corrientes Cobradas con saldo en CERO</h1>
                 <div className="col-sm-12 col-md-2 col-lg-2 col-lx-2 border-right border-dark">
-                    <Link to='/Saldos' className='btn btn-primary mt-2 mb-2'><i className="fa-solid fa-box-archive"></i>Ctas Ctes</Link>
-                    <Link to='/anulados' className='btn btn-primary mt-2 mb-2'><i className="fa-solid fa-box-archive"></i> Cta Cte Anuladas</Link>
-                    <Link to='/saldosCobrados' className='btn btn-primary mt-2 mb-2'><i className="fa-solid fa-box-archive"></i>Cta Cte Cobradas</Link>
+                    <Link to='/Saldos' className='btn btn-primary boton'><i className="fa-solid fa-box-archive"></i>Volver</Link>
+                   
                 </div>
                 <div className="col-sm-12 col-md-10 col-lg-10 col-lx-10">
                     <table className='table'>
