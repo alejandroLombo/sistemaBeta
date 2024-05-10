@@ -24,7 +24,7 @@ function App() {
   const { isLoggedIn } = useAuth();
   const  [users, setLogueado] = useState('');
   
-  console.log('Estado de autenticación:', isLoggedIn);
+  
   useEffect(() => {
     // Lógica para comprobar si el usuario está logueado
     const userString = localStorage.getItem('usuario');
@@ -39,8 +39,6 @@ function App() {
     //const userLoggedIn = /* Lógica para comprobar si el usuario está logueado */ true;
   }, []);
   
-  console.log(users)
-
 
     return (
 

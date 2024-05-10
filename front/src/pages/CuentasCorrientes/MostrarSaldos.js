@@ -87,9 +87,9 @@ const ComponenteMostrarSaldos = () => {
                                     <td>
                                         {user.id_cargo === 1 && (<>
                                             <Link to={`/editar/${saldo.id}`} className='btn btn-info ml-1'><i className="fa-solid fa-pen-to-square ml-1"></i></Link>
-                                            <Link to={`/pagos/${saldo.id}`} className='btn btn-secondary ml-1'><i className="fa-solid fa-magnifying-glass"></i>Ver Pagos</Link>
                                             {/*   <button onClick={() => borrarSaldo(saldo.id)} className='btn btn-danger ml-1'><i class="fa-solid fa-trash"></i></button> */}
                                         </>)}
+                                            <Link to={`/pagos/${saldo.id}`} className='btn btn-secondary ml-1'><i className="fa-solid fa-magnifying-glass"></i>Ver Pagos</Link>
                                         <Link to={`/cobrar/${saldo.id}`} className='btn btn-success ml-1'><i className="fa-solid fa-sack-dollar"></i> Cobrar</Link>
                                     </td>
 
