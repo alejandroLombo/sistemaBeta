@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from 'react-router-dom'
 
-const URIcuentas = 'http://localhost:8000/cuentas/'
-const URIclientes = 'http://localhost:8000/clientes/'
+const URIcuentas = 'http://localhost:3000/cuentas/'
+const URIclientes = 'http://localhost:3000/clientes/'
 
 const ComponenteCrearSaldo = () => {
 

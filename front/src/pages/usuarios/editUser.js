@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-const URI = 'http://localhost:8000/usuarios/';
+const URI = 'http://localhost:3000/usuarios/';
 
 const EditarUsuario = () => {
     const [nombre, setNombre] = useState('');

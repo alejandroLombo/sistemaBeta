@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams, Link, } from "react-router-dom";
 
 
-const URI = 'http://localhost:8000/pagos/'
+const URI = 'http://localhost:3000/pagos/'
 
 
 const ComponenteMostrarPagos = () => {

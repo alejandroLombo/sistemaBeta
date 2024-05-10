@@ -36,7 +36,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 
-app.use(cors())
+app.use(cors());
 
 /* app.use('/', loginRouter); */
 app.use('/usuarios', usersRoutes)
@@ -53,8 +53,8 @@ try {
   console.log(`El error de conexion es: ${error}`);
 }
 
-app.listen(8000, () => {
-  console.log("Servidor corriendo en http://localhost:8000")
+app.listen(3000, () => {
+  console.log("Servidor corriendo en http://localhost:3000")
 });
 
 // error handler

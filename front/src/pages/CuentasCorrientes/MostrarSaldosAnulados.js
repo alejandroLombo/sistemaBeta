@@ -3,7 +3,7 @@ import '../../styles/components/botones/button.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const URI = 'http://localhost:8000/cuentas/'
+const URI = 'http://localhost:3000/cuentas/'
 
 const ComponenteMostrarSaldosAnulados = () => {
 

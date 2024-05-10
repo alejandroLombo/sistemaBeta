@@ -2,10 +2,10 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-const URICLIENTES = 'http://localhost:8000/home';
-const URIZONAS = 'http://localhost:8000/home/getTotalZonas';
-const URIUSER = 'http://localhost:8000/home/getTotalUser';
-const URISALDOS = 'http://localhost:8000/home/getSaldosPorZona';
+const URICLIENTES = 'http://localhost:3000/home';
+const URIZONAS = 'http://localhost:3000/home/getTotalZonas';
+const URIUSER = 'http://localhost:3000/home/getTotalUser';
+const URISALDOS = 'http://localhost:3000/home/getSaldosPorZona';
 
 
 export default function Administracion() {
