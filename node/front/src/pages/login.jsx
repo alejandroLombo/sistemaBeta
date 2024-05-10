@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Navigate } from 'react-router-dom';
 
 
-const URI = 'localhost:8000/usuarios/'
+const URI = '93.127.212.217:8000/usuarios/'
 
 
 
