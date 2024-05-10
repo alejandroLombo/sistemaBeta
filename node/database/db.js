@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize'
 
 const db = new Sequelize('svaweb','root', 'Milo2603!', {
-    host: "localhost",
+    host: "http://93.127.212.217/",
     dialect: 'mysql'
 })
 
