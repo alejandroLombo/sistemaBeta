@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize'
 
-const db = new Sequelize('svaweb','root', 'milo.2603', {
+const db = new Sequelize('svaweb','root', '', {
     host: "localhost",
     port:3306,
     dialect: 'mysql'
