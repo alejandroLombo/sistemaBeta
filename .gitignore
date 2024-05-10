@@ -1,4 +1,4 @@
 node_modules
-
+node/database/db.js
 .DS_store
 .vscode
