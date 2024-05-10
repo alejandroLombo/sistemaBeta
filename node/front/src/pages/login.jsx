@@ -30,12 +30,13 @@ export default function Login() {
                 password: pass
             })
             setUsuario(res.data)
+            
         } catch (error) {
             console.error('Error al obtener el usuario:', error);
             setError("Contraseña incorrecta. Por favor, inténtalo de nuevo."); // Mostrar un mensaje de error
 
         }
-
+       
     }
 
  
